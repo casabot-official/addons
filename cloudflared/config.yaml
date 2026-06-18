@@ -9,6 +9,7 @@ description: "Use a Cloudflare Tunnel to remotely
   connect to CASABOT without opening any ports"
 url: "https://github.com/casabot-official/addons"
 image: "ghcr.io/casabot-official/{arch}-addon-cloudflared"
+boot: manual_only
 startup: services
 init: false
 hassio_api: true
