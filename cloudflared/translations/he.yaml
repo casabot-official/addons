@@ -5,10 +5,10 @@ configuration:
     description: >-
       מגדיר את רמת היומן עבור ההרחבה.
   external_hostname:
-    name: מארח חיצוני עבור Home Assistant
+    name: מארח חיצוני עבור CASABOT
     description: >-
       הגדרת שם הדומיין או תת-הדומיין שלך שבו ברצונך להשתמש
-      כדי לגשת אל Home Assistant.
+      כדי לגשת אל CASABOT.
   tunnel_name:
     name: שם מנהרת Cloudflare
     description: >-

@@ -1,7 +1,7 @@
 #!/command/with-contenv bashio
 # shellcheck shell=bash
 # ==============================================================================
-# Home Assistant App (Add-on): Cloudflared
+# CASABOT App (Add-on): Cloudflared
 #
 # Configures the Cloudflare Tunnel and creates the needed DNS entry under the
 # given hostname(s)
@@ -81,18 +81,18 @@ validateConfigAndSetVars() {
     tunnel_uuid=""
     data_path="/data"
 
-    bashio::log.debug "Checking Home Assistant port and if SSL is used..."
+    bashio::log.debug "Checking CASABOT port and if SSL is used..."
     local ha_config_file="/homeassistant/configuration.yaml"
     local ha_port="8123"
     local ha_ssl="false"
     if bashio::var.is_empty "${external_hostname}"; then
-      bashio::log.debug "No external_hostname configured, skipping check of Home Assistant port and SSL"
+      bashio::log.debug "No external_hostname configured, skipping check of CASABOT port and SSL"
     elif yq . "${ha_config_file}" >/dev/null; then
       # https://www.home-assistant.io/integrations/http/#http-configuration-variables
       ha_port=$(yq ".http.server_port // ${ha_port}" "${ha_config_file}")
       ha_ssl=$(yq '.http | (has("ssl_certificate") and has("ssl_key"))' "${ha_config_file}")
     else
-      bashio::log.warning "Unable to parse Home Assistant configuration file at ${ha_config_file}, assuming port ${ha_port} and no SSL"
+      bashio::log.warning "Unable to parse CASABOT configuration file at ${ha_config_file}, assuming port ${ha_port} and no SSL"
     fi
     bashio::log.debug "ha_port: ${ha_port}"
     bashio::log.debug "ha_ssl: ${ha_ssl}"
@@ -264,7 +264,7 @@ createConfig() {
     config=$(bashio::jq "{\"tunnel\":\"${tunnel_uuid}\"}" ".")
     config=$(bashio::jq "${config}" ".\"credentials-file\" += \"${data_path}/tunnel.json\"")
 
-    # Add Service for Home Assistant if 'external_hostname' is set
+    # Add Service for CASABOT if 'external_hostname' is set
     if bashio::config.has_value 'external_hostname'; then
         config=$(bashio::jq "${config}" ".\"ingress\" += [{\"hostname\": \"${external_hostname}\", \"service\": \"${ha_url}\"}]")
     fi
@@ -325,7 +325,7 @@ createConfig() {
 createDNS() {
     bashio::log.trace "${FUNCNAME[0]}"
 
-    # Create DNS entry for external hostname of Home Assistant if 'external_hostname' is set
+    # Create DNS entry for external hostname of CASABOT if 'external_hostname' is set
     if bashio::var.has_value "${external_hostname}"; then
         bashio::log.info "Creating DNS entry ${external_hostname}..."
         cloudflared --origincert="${data_path}/cert.pem" tunnel --loglevel "${CLOUDFLARED_LOG}" route dns -f "${tunnel_uuid}" "${external_hostname}" ||

@@ -5,10 +5,10 @@ configuration:
     description: >-
       Defines the log level for the app/add-on.
   external_hostname:
-    name: External Home Assistant Hostname
+    name: External CASABOT Hostname
     description: >-
       Set this to your domain name or subdomain that you want to use to
-      access Home Assistant.
+      access CASABOT.
   tunnel_name:
     name: Cloudflare Tunnel Name
     description: >-

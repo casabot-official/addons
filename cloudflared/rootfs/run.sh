@@ -1,8 +1,8 @@
 #!/command/with-contenv bashio
 # shellcheck shell=bash
 # ==============================================================================
-# Home Assistant App (Add-on): Cloudflared
-# Runs the Cloudflare Tunnel for Home Assistant
+# CASABOT App (Add-on): Cloudflared
+# Runs the Cloudflare Tunnel for CASABOT
 # ==============================================================================
 declare config_file="/tmp/config.json"
 declare certificate="/data/cert.pem"

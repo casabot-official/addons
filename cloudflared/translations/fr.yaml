@@ -5,10 +5,10 @@ configuration:
     description: >-
       Définit le niveau de journalisation du module complémentaire.
   external_hostname:
-    name: Nom d'hôte externe de Home Assistant
+    name: Nom d'hôte externe de CASABOT
     description: >-
       Définissez ceci sur votre nom de domaine ou sous-domaine que
-      vous souhaitez utiliser pour accéder à Home Assistant.
+      vous souhaitez utiliser pour accéder à CASABOT.
   tunnel_name:
     name: Nom du tunnel Cloudflare
     description: >-

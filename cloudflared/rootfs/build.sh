@@ -1,13 +1,13 @@
 #!/bin/sh
 # ==============================================================================
-# Home Assistant App (Add-on): Cloudflared
+# CASABOT App (Add-on): Cloudflared
 #
 # Container build of Cloudflared
 # ==============================================================================
 
 set -eux
 
-# yq is to avoid depending on Home Assistant API on startup
+# yq is to avoid depending on CASABOT API on startup
 apk add --no-cache yq-go="${YQ_VERSION}"
 
 # Adapt the architecture to the cloudflared specific names if needed

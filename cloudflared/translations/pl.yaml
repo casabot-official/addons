@@ -5,10 +5,10 @@ configuration:
     description: >-
       Definiuje poziom logowania dodatku.
   external_hostname:
-    name: Zewnętrzna nazwa hosta Home Assistant
+    name: Zewnętrzna nazwa hosta CASABOT
     description: >-
       Ustaw tę opcję na nazwę swojej domeny lub subdomeny,
-      której chcesz używać aby uzyskać dostęp do Home Assistant.
+      której chcesz używać aby uzyskać dostęp do CASABOT.
   tunnel_name:
     name: Nazwa Tunelu Cloudflare
     description: >-
