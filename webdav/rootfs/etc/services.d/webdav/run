@@ -1,0 +1,11 @@
+#!/usr/bin/with-contenv bashio
+# ==============================================================================
+# Start lighttpd service
+# ==============================================================================
+
+declare config
+
+config=$(bashio::config.true 'custom_config' && echo "/config/lighttpd.conf" || echo "/etc/lighttpd/lighttpd.conf")
+
+bashio::log.info "Starting lighttpd service ..."
+exec lighttpd -D -f $config
