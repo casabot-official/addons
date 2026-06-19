@@ -7,7 +7,7 @@ version: dev
 slug: webdav
 startup: services
 init: false
-boot: auto
+boot: manual_only
 hassio_api: true
 arch:
   - aarch64
