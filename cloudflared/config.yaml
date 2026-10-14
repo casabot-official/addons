@@ -1,6 +1,6 @@
 ---
 name: Cloudflared
-version: dev
+version: 2026.10.14
 breaking_versions:
   - 5.3.7
   - 6.0.0

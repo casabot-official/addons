@@ -3,7 +3,7 @@ name: WebDAV server
 description: Expose CASABOT folders with WebDAV
 url: "https://github.com/casabot-official/addons"
 image: "ghcr.io/casabot-official/{arch}-addon-webdav"
-version: dev
+version: 2026.10.14
 slug: webdav
 startup: services
 init: false
